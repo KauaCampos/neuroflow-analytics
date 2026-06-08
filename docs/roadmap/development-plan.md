@@ -10,50 +10,79 @@ O MVP terá duração estimada de **4 semanas**. A execução será organizada p
 
 - O desenvolvimento será realizado por uma equipe de 3 desenvolvedores.
 - O trabalho será dividido por funcionalidades, casos de uso e épicos de produto.
+- O projeto seguirá uma abordagem feature-based.
 - Cada funcionalidade deve possuir Issue própria, branch dedicada e Pull Request associado.
-- O desenvolvimento de frontend, backend e banco de dados poderá ocorrer em paralelo, desde que contratos, modelos e critérios de aceite estejam alinhados.
+- Cada desenvolvedor será responsável pelo ciclo completo das funcionalidades sob sua responsabilidade.
+- Sempre que possível, uma funcionalidade deverá ser implementada ponta a ponta pelo mesmo desenvolvedor.
+- Cada integrante deverá implementar frontend, backend, banco de dados quando necessário, testes e integração da própria funcionalidade.
+- A divisão do trabalho deve minimizar dependências entre integrantes.
+- O compartilhamento de responsabilidades ocorrerá apenas em infraestrutura comum, arquitetura global, deploy e integração final.
 - A integração deve ser tratada como atividade contínua, não apenas como etapa final.
 - A branch `develop` será o ponto de integração do MVP antes da promoção para `main`.
 - Decisões técnicas relevantes devem ser documentadas para reduzir desalinhamento entre integrantes.
 
-## Estrutura sugerida da equipe
+## Estrutura baseada em Casos de Uso
 
-A divisão abaixo é uma referência inicial e pode ser ajustada conforme disponibilidade, senioridade e prioridades da sprint.
+A equipe será organizada por funcionalidades de negócio e não por tecnologias.
 
-### Desenvolvedor 1 — Autenticação, Usuários e Arquitetura Backend
+Cada desenvolvedor será responsável por implementar suas funcionalidades de forma completa.
 
-Responsabilidades principais:
+Isso inclui:
 
-- Autenticação JWT.
-- Cadastro e login.
-- Gestão de usuários.
-- Segurança das rotas privadas.
-- Estrutura base do backend.
-- Validação das regras de acesso por usuário.
+- Modelagem necessária.
+- Endpoints.
+- Regras de negócio.
+- Telas.
+- Componentes.
+- Testes.
+- Integração.
 
-### Desenvolvedor 2 — Domínio Acadêmico e Banco de Dados
+### Desenvolvedor 1
 
-Responsabilidades principais:
+Responsável por:
 
-- Matérias.
-- Tarefas.
-- Sessões de estudo.
-- Metas.
-- Modelagem do banco de dados.
-- Integração Backend + PostgreSQL.
+#### UC-01 Cadastro de Usuário
 
-### Desenvolvedor 3 — Frontend, Dashboard e Experiência do Usuário
+- Registro.
+- Autenticação.
+- Login.
+- Logout.
+- Perfil.
 
-Responsabilidades principais:
+#### UC-02 Gestão de Metas
 
-- Estrutura React.
-- Design System.
-- Layout base.
-- Telas principais.
+- CRUD de metas.
+- Acompanhamento de progresso.
+
+### Desenvolvedor 2
+
+Responsável por:
+
+#### UC-03 Gestão de Matérias
+
+- CRUD de matérias.
+
+#### UC-04 Sessões de Estudo
+
+- Registro.
+- Histórico.
+- Edição.
+- Exclusão.
+
+### Desenvolvedor 3
+
+Responsável por:
+
+#### UC-05 Gestão de Tarefas
+
+- CRUD de tarefas.
+
+#### UC-06 Dashboard e Analytics
+
 - Dashboard.
-- Analytics visuais.
+- Gráficos.
+- Métricas.
 - Heatmap.
-- Responsividade.
 
 ## Objetivos do MVP
 
@@ -146,126 +175,106 @@ O MVP deve permitir que um usuário:
 
 ---
 
-## Semana 2 — Desenvolvimento dos Casos de Uso
+## Semana 2 — Implementação dos Casos de Uso
 
-**Objetivo da semana:** implementar os principais casos de uso do MVP em paralelo, com foco nos CRUDs essenciais e na base funcional da aplicação.
+**Objetivo da semana:** cada integrante desenvolve suas funcionalidades ponta a ponta, com foco em entregar casos de uso utilizáveis de forma isolada.
 
 ### Objetivo principal
 
-Ter os CRUDs principais implementados e prontos para integração.
+Concluir a maior parte dos casos de uso atribuídos.
 
-### Casos de uso prioritários
+### Abordagem de execução
 
-- Autenticação.
-- Matérias.
-- Tarefas.
-- Metas.
-- Sessões de estudo.
+Cada desenvolvedor deve conduzir o ciclo completo das funcionalidades sob sua responsabilidade, evitando repasses constantes entre integrantes para finalizar uma entrega.
 
-### Divisão sugerida por funcionalidade
+Cada caso de uso deve entregar:
 
-#### Autenticação
+- Banco de dados necessário.
+- Backend.
+- Frontend.
+- Validações.
+- Testes básicos.
+- Integração da própria funcionalidade.
 
-Escopo esperado:
+### Casos de uso por responsável
 
-- Cadastro de usuário.
-- Login.
-- Geração de token JWT.
-- Proteção de rotas privadas.
-- Associação de dados ao usuário autenticado.
+#### Desenvolvedor 1
 
-#### Matérias
+- **UC-01 Cadastro de Usuário:** registro, autenticação, login, logout e perfil.
+- **UC-02 Gestão de Metas:** CRUD de metas e acompanhamento de progresso.
 
-Escopo esperado:
+#### Desenvolvedor 2
 
-- Criar matéria.
-- Listar matérias do usuário.
-- Atualizar matéria.
-- Remover matéria.
-- Validar obrigatoriedade e propriedade dos dados.
+- **UC-03 Gestão de Matérias:** CRUD de matérias.
+- **UC-04 Sessões de Estudo:** registro, histórico, edição e exclusão.
 
-#### Tarefas
+#### Desenvolvedor 3
 
-Escopo esperado:
-
-- Criar tarefa.
-- Listar tarefas do usuário.
-- Atualizar tarefa.
-- Remover tarefa.
-- Associar tarefas a matérias, quando aplicável.
-
-#### Metas
-
-Escopo esperado:
-
-- Criar meta.
-- Listar metas do usuário.
-- Atualizar meta.
-- Remover meta.
-- Validar metas por período e tipo.
-
-#### Sessões de estudo
-
-Escopo esperado:
-
-- Registrar sessão de estudo.
-- Listar sessões por usuário.
-- Atualizar sessão.
-- Remover sessão.
-- Relacionar sessões com matérias, tarefas ou metas, quando aplicável.
+- **UC-05 Gestão de Tarefas:** CRUD de tarefas.
+- **UC-06 Dashboard e Analytics:** dashboard, gráficos, métricas e heatmap.
 
 ### Entregáveis
 
-- Endpoints principais implementados.
-- Telas e componentes principais em desenvolvimento ou prontos para integração.
-- Persistência dos dados principais funcionando.
-- Pull Requests abertos por funcionalidade.
-- Testes iniciais de serviços, controllers ou componentes críticos.
+- Casos de uso implementados ponta a ponta em branches próprias.
+- Modelagem, migrações ou scripts necessários para cada funcionalidade.
+- Endpoints, regras de negócio e validações de cada caso de uso.
+- Telas, componentes e estados de interface de cada funcionalidade.
+- Testes básicos associados às funcionalidades implementadas.
+- Pull Requests abertos por caso de uso ou incremento funcional.
 
 ### Critérios de aceite
 
+- Cada caso de uso possui um responsável definido.
+- Cada caso de uso pode ser executado independentemente.
+- As funcionalidades não dependem da implementação de outro desenvolvedor para serem concluídas.
+- As dependências entre módulos foram reduzidas ao mínimo necessário.
 - Cada funcionalidade possui branch, Issue e Pull Request associado.
-- Os CRUDs principais estão implementados ou em estado integrável.
-- As regras de propriedade por usuário foram consideradas.
-- Os contratos entre frontend e backend estão claros.
-- Não existem conflitos estruturais relevantes entre as frentes de desenvolvimento.
+- A maior parte dos casos de uso atribuídos está implementada ou em estado demonstrável.
+- Ao final da semana, cada funcionalidade está utilizável de forma isolada.
 
 ---
 
 ## Semana 3 — Integração
 
-**Objetivo da semana:** integrar as frentes de frontend, backend e banco de dados, validar regras de negócio e corrigir inconsistências identificadas durante o uso do fluxo completo.
+**Objetivo da semana:** integrar os casos de uso desenvolvidos individualmente, validar regras de negócio entre módulos e corrigir conflitos identificados durante o uso do fluxo completo.
 
-### Objetivos
+### Integração entre Casos de Uso
 
-- Integração Frontend + Backend.
-- Integração Backend + Banco.
-- Validação das regras de negócio.
-- Correção de inconsistências.
+Objetivos:
+
+- Integrar funcionalidades desenvolvidas individualmente.
+- Validar navegação entre módulos.
+- Validar consistência visual.
+- Validar autenticação em todos os fluxos.
+- Corrigir conflitos entre implementações.
 
 ### Atividades
 
-- Conectar telas aos endpoints reais.
-- Validar autenticação em rotas protegidas.
-- Validar persistência dos dados por usuário.
-- Testar fluxos de criação, listagem, atualização e remoção.
-- Corrigir divergências entre contratos de API e consumo no frontend.
-- Ajustar mensagens de erro, estados vazios e estados de carregamento.
+- Validar a comunicação entre casos de uso que possuem dependências reais.
+- Testar o fluxo de autenticação como base para os demais módulos.
+- Validar a navegação entre cadastro, matérias, tarefas, metas, sessões de estudo e dashboard.
+- Confirmar que cada funcionalidade mantém sua autonomia operacional.
+- Revisar consistência visual entre telas criadas por desenvolvedores diferentes.
+- Corrigir conflitos de rotas, contratos, componentes compartilhados, migrações e nomenclaturas.
 - Revisar regras de negócio implementadas contra a documentação.
 - Resolver bugs bloqueadores para o fluxo principal.
 
 ### Entregáveis
 
-- Fluxo completo funcionando.
-- Frontend consumindo APIs reais.
-- Backend persistindo dados no PostgreSQL.
-- Regras de negócio essenciais validadas.
+- Fluxo completo funcionando com os casos de uso integrados.
+- Funcionalidades individuais conectadas ao fluxo geral da aplicação.
+- Navegação entre módulos validada.
+- Consistência visual e comportamental revisada.
 - Issues de inconsistência registradas ou corrigidas.
 
 ### Critérios de aceite
 
 - Um usuário consegue se cadastrar, autenticar e acessar a aplicação.
-- Um usuário consegue gerenciar matérias, tarefas, metas e sessões de estudo com dados reais.
+- Um usuário consegue navegar entre os módulos do MVP sem bloqueios críticos.
+- Cada caso de uso possui um responsável definido.
+- Cada caso de uso pode ser executado independentemente.
+- As funcionalidades não dependem da implementação de outro desenvolvedor para serem concluídas.
+- As dependências entre módulos foram reduzidas ao mínimo necessário.
 - Os dados são segregados corretamente por usuário autenticado.
 - O fluxo principal funciona em ambiente local integrado.
 - Bugs críticos de integração foram corrigidos ou priorizados para a Semana 4.
@@ -308,6 +317,10 @@ Primeira versão pública do MVP.
 - Heatmap representa a consistência de estudos do usuário.
 - A aplicação é utilizável nos principais tamanhos de tela definidos para o MVP.
 - Testes e validações críticas foram executados.
+- Cada caso de uso possui um responsável definido.
+- Cada caso de uso pode ser executado independentemente dentro do fluxo do MVP.
+- As funcionalidades não dependem da implementação de outro desenvolvedor para serem concluídas.
+- As dependências entre módulos foram reduzidas ao mínimo necessário.
 - O deploy foi realizado com sucesso.
 - A release do MVP foi documentada.
 
@@ -323,6 +336,9 @@ Primeira versão pública do MVP.
 - [ ] Labels criadas.
 - [ ] Issues iniciais criadas por funcionalidade.
 - [ ] Todas as funcionalidades possuem Issue associada.
+- [ ] Todos os casos de uso possuem responsável definido.
+- [ ] Cada caso de uso foi implementado ponta a ponta pelo responsável sempre que possível.
+- [ ] Dependências entre integrantes foram reduzidas ao mínimo necessário.
 - [ ] Todas as alterações relevantes passaram por Pull Request.
 - [ ] Pull Requests foram revisados por outro membro da equipe.
 - [ ] Releases foram promovidas de `develop` para `main`.
@@ -335,45 +351,76 @@ Primeira versão pública do MVP.
 - [ ] Casos de uso revisados.
 - [ ] Fluxo principal validado de ponta a ponta.
 
-## Frontend
+## Casos de uso
 
-- [ ] Projeto React configurado.
-- [ ] Design System inicial aplicado.
-- [ ] Layout base implementado.
-- [ ] Telas de autenticação implementadas.
-- [ ] Telas de matérias implementadas.
-- [ ] Telas de tarefas implementadas.
-- [ ] Telas de metas implementadas.
-- [ ] Telas de sessões de estudo implementadas.
+### UC-01 Cadastro de Usuário
+
+- [ ] Modelagem necessária implementada.
+- [ ] Endpoints de registro, autenticação, login, logout e perfil implementados.
+- [ ] Telas e componentes de autenticação implementados.
+- [ ] Validações de entrada e regras de autenticação implementadas.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
+
+### UC-02 Gestão de Metas
+
+- [ ] Modelagem necessária implementada.
+- [ ] CRUD de metas implementado.
+- [ ] Acompanhamento de progresso implementado.
+- [ ] Telas e componentes de metas implementados.
+- [ ] Validações e regras de negócio implementadas.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
+
+### UC-03 Gestão de Matérias
+
+- [ ] Modelagem necessária implementada.
+- [ ] CRUD de matérias implementado.
+- [ ] Telas e componentes de matérias implementados.
+- [ ] Validações e regras de propriedade por usuário implementadas.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
+
+### UC-04 Sessões de Estudo
+
+- [ ] Modelagem necessária implementada.
+- [ ] Registro, histórico, edição e exclusão de sessões implementados.
+- [ ] Telas e componentes de sessões de estudo implementados.
+- [ ] Validações e regras de negócio implementadas.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
+
+### UC-05 Gestão de Tarefas
+
+- [ ] Modelagem necessária implementada.
+- [ ] CRUD de tarefas implementado.
+- [ ] Telas e componentes de tarefas implementados.
+- [ ] Validações e regras de negócio implementadas.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
+
+### UC-06 Dashboard e Analytics
+
+- [ ] Métricas básicas implementadas.
 - [ ] Dashboard implementado.
+- [ ] Gráficos principais implementados.
 - [ ] Heatmap implementado.
 - [ ] Responsividade validada.
-- [ ] Estados de loading, erro e vazio implementados.
+- [ ] Testes básicos executados.
+- [ ] Funcionalidade integrada ao fluxo geral da aplicação.
 
-## Backend
+## Infraestrutura técnica comum
 
+- [ ] Projeto React configurado.
 - [ ] Projeto Spring Boot configurado.
-- [ ] Autenticação JWT implementada.
-- [ ] Cadastro implementado.
-- [ ] Login implementado.
-- [ ] CRUD de matérias implementado.
-- [ ] CRUD de tarefas implementado.
-- [ ] CRUD de metas implementado.
-- [ ] CRUD de sessões de estudo implementado.
-- [ ] Analytics básicos implementados.
-- [ ] Regras de acesso por usuário implementadas.
-
-## Banco de Dados
-
-- [ ] DER finalizado.
 - [ ] PostgreSQL configurado.
-- [ ] Tabela de usuários criada.
-- [ ] Tabela de matérias criada.
-- [ ] Tabela de tarefas criada.
-- [ ] Tabela de metas criada.
-- [ ] Tabela de sessões de estudo criada.
-- [ ] Relacionamentos principais definidos.
+- [ ] Docker configurado, quando aplicável.
+- [ ] DER finalizado.
 - [ ] Migrações ou scripts versionados.
+- [ ] Design System inicial aplicado.
+- [ ] Layout base implementado.
+- [ ] Estados de loading, erro e vazio padronizados.
+- [ ] Regras globais de acesso por usuário implementadas.
 
 ## Qualidade e release
 
