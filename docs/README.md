@@ -65,7 +65,10 @@ docs/
 │   ├── domain-model.md
 │   └── database-schema.md
 ├── roadmap/
-│   ├── mvp.md
+│   ├── development-plan.md
+│   ├── github-workflow.md
+│   ├── mvp.
+│   ├── project-management.md
 │   ├── v2.md
 │   └── v3.md
 └── decisions/
