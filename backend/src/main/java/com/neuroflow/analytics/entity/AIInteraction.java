@@ -1,0 +1,4 @@
+package com.neuroflow.analytics.entity;
+import com.neuroflow.user.entity.User;import jakarta.persistence.*;import java.time.Instant;import java.util.UUID;import lombok.Getter;import lombok.Setter;
+@Getter @Setter @Entity @Table(name="ai_interactions", indexes=@Index(name="idx_ai_interactions_user_created_at", columnList="user_id,created_at"))
+public class AIInteraction { @Id @GeneratedValue(strategy=GenerationType.UUID) private UUID id; @ManyToOne(fetch=FetchType.LAZY,optional=false) @JoinColumn(name="user_id",nullable=false) private User user; @Column(name="interaction_type",nullable=false,length=50) private String interactionType; @Column(name="context_summary",nullable=false,columnDefinition="text") private String contextSummary; @Column(name="response_text",nullable=false,columnDefinition="text") private String responseText; @Column(length=80) private String model; @Column(name="created_at",nullable=false) private Instant createdAt; }

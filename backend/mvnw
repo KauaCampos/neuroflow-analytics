@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Lightweight Maven wrapper entrypoint for containerized development.
+if command -v mvn >/dev/null 2>&1; then
+  exec mvn "$@"
+fi
+echo "Apache Maven is required to run this project. Install Maven or use the Docker build." >&2
+exit 1

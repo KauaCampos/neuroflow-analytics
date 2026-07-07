@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: neuroflow-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/neuroflow}
+    username: ${SPRING_DATASOURCE_USERNAME:neuroflow}
+    password: ${SPRING_DATASOURCE_PASSWORD:neuroflow_dev_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+server:
+  servlet:
+    context-path: /api
+app:
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:5173}
+  jwt:
+    secret: ${APP_JWT_SECRET:change-me-to-a-strong-secret-with-at-least-32-characters}
+    expiration-minutes: ${APP_JWT_EXPIRATION_MINUTES:60}

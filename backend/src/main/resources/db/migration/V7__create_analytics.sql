@@ -1,0 +1,2 @@
+CREATE TABLE ai_interactions (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE, interaction_type VARCHAR(50) NOT NULL, context_summary TEXT NOT NULL, response_text TEXT NOT NULL, model VARCHAR(80), created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX idx_ai_interactions_user_created_at ON ai_interactions(user_id, created_at);
