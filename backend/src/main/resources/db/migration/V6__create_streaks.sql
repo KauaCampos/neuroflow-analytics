@@ -1,0 +1,1 @@
+CREATE TABLE streaks (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID NOT NULL UNIQUE REFERENCES users(id) ON DELETE CASCADE, current_streak INTEGER NOT NULL DEFAULT 0 CHECK (current_streak >= 0), best_streak INTEGER NOT NULL DEFAULT 0 CHECK (best_streak >= 0), last_study_date DATE, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);

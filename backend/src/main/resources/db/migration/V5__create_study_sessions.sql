@@ -1,0 +1,3 @@
+CREATE TABLE study_sessions (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE, subject_id UUID REFERENCES subjects(id) ON DELETE SET NULL, session_date DATE NOT NULL, start_time TIMESTAMP, end_time TIMESTAMP, duration_minutes INTEGER NOT NULL CHECK (duration_minutes > 0), study_type VARCHAR(40) NOT NULL, focus_level SMALLINT CHECK (focus_level BETWEEN 1 AND 5), notes TEXT, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX idx_study_sessions_user_date ON study_sessions(user_id, session_date);
+CREATE INDEX idx_study_sessions_subject ON study_sessions(subject_id);

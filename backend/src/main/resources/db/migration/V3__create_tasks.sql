@@ -1,0 +1,2 @@
+CREATE TABLE tasks (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE, subject_id UUID REFERENCES subjects(id) ON DELETE SET NULL, title VARCHAR(160) NOT NULL, description TEXT, priority VARCHAR(20) NOT NULL, status VARCHAR(30) NOT NULL, due_date DATE, completed_at TIMESTAMP, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX idx_tasks_user_status_due_date ON tasks(user_id, status, due_date);

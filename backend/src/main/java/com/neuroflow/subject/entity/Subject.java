@@ -1,0 +1,4 @@
+package com.neuroflow.subject.entity;
+import com.neuroflow.user.entity.User;import jakarta.persistence.*;import java.time.Instant;import java.util.UUID;import lombok.Getter;import lombok.Setter;
+@Getter @Setter @Entity @Table(name="subjects", indexes=@Index(name="idx_subjects_user_id", columnList="user_id"))
+public class Subject { @Id @GeneratedValue(strategy=GenerationType.UUID) private UUID id; @ManyToOne(fetch=FetchType.LAZY,optional=false) @JoinColumn(name="user_id",nullable=false) private User user; @Column(nullable=false,length=120) private String name; @Column(columnDefinition="text") private String description; @Column(length=20) private String color; @Column(nullable=false,length=30) private String status; @Column(name="created_at",nullable=false) private Instant createdAt; @Column(name="updated_at",nullable=false) private Instant updatedAt; }

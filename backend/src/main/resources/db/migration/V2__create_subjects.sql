@@ -1,0 +1,2 @@
+CREATE TABLE subjects (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE, name VARCHAR(120) NOT NULL, description TEXT, color VARCHAR(20), status VARCHAR(30) NOT NULL, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT uk_subjects_user_name UNIQUE(user_id, name));
+CREATE INDEX idx_subjects_user_id ON subjects(user_id);
