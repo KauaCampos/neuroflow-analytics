@@ -1,2 +1,19 @@
 import { Button } from '@/components/ui/button';
-export function RegisterPage(){return <div className="container flex min-h-[calc(100vh-5rem)] items-center justify-center"><div className="w-full max-w-md rounded-3xl border bg-white p-8 shadow-xl"><h1 className="text-3xl font-bold">Cadastro</h1><p className="mt-2 text-muted-foreground">Crie sua conta para começar a acompanhar seus estudos.</p><form className="mt-6 grid gap-4"><input className="h-11 rounded-xl border px-4" placeholder="Nome completo"/><input className="h-11 rounded-xl border px-4" placeholder="E-mail" type="email"/><input className="h-11 rounded-xl border px-4" placeholder="Senha" type="password"/><Button type="button">Criar conta</Button></form></div></div>}
+export function RegisterPage() {
+  return (
+    <div className="container flex min-h-[calc(100vh-5rem)] items-center justify-center">
+      <div className="w-full max-w-md rounded-3xl border bg-white p-8 shadow-xl">
+        <h1 className="text-3xl font-bold">Cadastro</h1>
+        <p className="mt-2 text-muted-foreground">
+          Crie sua conta para começar a acompanhar seus estudos.
+        </p>
+        <form className="mt-6 grid gap-4">
+          <input className="h-11 rounded-xl border px-4" placeholder="Nome completo" />
+          <input className="h-11 rounded-xl border px-4" placeholder="E-mail" type="email" />
+          <input className="h-11 rounded-xl border px-4" placeholder="Senha" type="password" />
+          <Button type="button">Criar conta</Button>
+        </form>
+      </div>
+    </div>
+  );
+}
